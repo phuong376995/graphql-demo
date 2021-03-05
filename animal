@@ -1,0 +1,14 @@
+const animal = [
+    {
+        id: "1",
+        name: "CauVang",
+        height: 0.5
+    },
+    {
+        id: "2",
+        name: "Doremon",
+        weight: 2
+    }
+]
+
+module.exports = animal;

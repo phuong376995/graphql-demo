@@ -1,7 +1,8 @@
 const typeDefs = `
     type Author {
         id: ID!,
-        info: Person
+        info: Person,
+        gender: String
     }
     type Person {
         name: String,
@@ -40,12 +41,28 @@ const typeDefs = `
         totalCount: Int!,
         edges: [Edge]
     },
+    interface Animal {
+        id: String,
+        name: String
+    },
+    type Dog implements Animal {
+        id: String,
+        name: String,
+        height: Float
+    },
+    type Cat implements Animal {
+        id: String,
+        name: String,
+        weight: Float
+    },
     type Query {
         getAuthors: [Author],
         retrieveAuthor(id: ID!): Author,
         hero: [Hero],
         getHeroByEpisode(episode: String): Hero,
-        human(id: ID!): Human
+        human(id: ID!): Human,
+        getAnimal(id: ID!): Animal,
+        getAllAnimal: [Animal]
     },
     type Mutation {
         createAuthor(name: String!, gender: String!): Author

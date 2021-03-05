@@ -114,3 +114,68 @@
 #     }
 #   }
 # }
+
+# Directives
+
+# query Hero($episode: String, $withFriends: Boolean!) {
+#   getHeroByEpisode(episode: $episode) {
+#     name
+#     friends @include(if: $withFriends) {
+#       name
+#     }
+#   }
+# }
+
+# Mutations
+
+# mutation createAuthor($name: String!, $gender: String!) {
+#   createAuthor(name: $name, gender: $gender) {
+#     id,
+#     info {
+#       name
+#     }
+#   }
+# }
+
+# Multiple fields in mutations
+
+# While query fields are executed in parallel, mutation fields run in series, one after the other.
+
+# Inline Fragments
+
+# {
+#   getAnimal(id: "2") {
+#     id,
+#     ... on Dog {
+#       height
+#     }
+#     ... on Cat {
+#       weight
+#     }
+#   }
+# }
+
+
+# Meta fields
+
+# {
+#   getAllAnimal {
+#     __typename,
+#     id,
+#     ... on Dog {
+#       height
+#     }
+#     ... on Cat {
+#       weight
+#     }
+#   }
+# }
+
+# Introspection
+
+{
+  __type(name: "Animal") {
+    name
+    kind
+  }
+}
